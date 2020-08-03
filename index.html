@@ -13,7 +13,7 @@
 </head>
 
 <body>
-
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#">Porta tu crédito</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -29,59 +29,48 @@
         </div>
     </nav>
     <div class="main-section mt-5">
+       
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-lg-6">
-                    <h1 class="main-section_title pt-4 pb-3">Porta tu crédito y <strong>disminuye la cuota hasta la mitad</strong></h1>
-
-
-                </div>
-                <div class="col-md-12 col-lg-6">
-
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 mt-5">
                     <div class="form-background">
-                        <form class="pt-2 pb-2  mr-2 ml-2">
+                        <h1 class="main-section_title pt-4 pb-3">Porta tu crédito y <strong>disminuye la cuota hasta la
+                            mitad</strong></h1>
+                        <form class="pt-2 pb-2  mr-2 ml-2" action="assets/conn.php" method="POST">
                             <h2 class="main-section-form_title">¿Te gustaría saber cuanto te puedes ahorrar?</h2>
+                            <h3>Déjanos tus datos y te contactaremos con la mejor oferta</h3>
                             <div class="form-group">
 
                                 <label class=form-input-title for="email">Email</label>
                                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                                    placeholder="Ingresa tu email">
+                                    placeholder="Ingresa tu email" name="email">
 
                             </div>
                             <div class="form-group">
                                 <label class=form-input-title for="celular">Celular</label>
-                                <input type="text" class="form-control" id="celular" placeholder="Ingresa tu celular">
+                                <input type="text" class="form-control" id="celular" placeholder="Ingresa tu celular"
+                                    name="celular">
                             </div>
-                            <div class="form-group">
-                                <label class=form-input-title for="loan-kind">Tipo de crédito</label>
-                                <select class="form-control" id="loan-kind">
-                                    <option>Avance en efectivo</option>
-                                    <option>Automotriz</option>
-                                    <option>Crédito de consumo en cuotas</option>
-                                    <option>Deuda de tarjeta de crédito</option>
-                                    <option>Hipotecario</option>
-                                </select>
+                           <!-- <div class="form-group">
+                                <label class=form-input-title for="institution">Institución</label>
+                                <input type="text" class="form-control" id="institution"
+                                    placeholder="¿Con quién mantienes tu crédito?" name="institution">
                             </div>
                             <div class="form-group">
                                 <label class=form-input-title for="loan-amount">Monto del crédito</label>
                                 <input type="text" class="form-control" id="loan-amount"
-                                    placeholder="Ingresa el monto aproximado de tu crédito">
+                                    placeholder="Ingresa el monto aproximado de tu crédito" name="loan_kind">
                             </div>
                             <div class="form-group">
                                 <label class=form-input-title for="institution">Institución</label>
                                 <input type="text" class="form-control" id="institution"
-                                    placeholder="¿Con quién mantienes tu crédito?">
+                                    placeholder="¿Con quién mantienes tu crédito?" name="institution">
                             </div>
 
                             <div class="form-group">
-                                <label class=form-input-title for="loan-term">¿Cuántos meses te quedan por pagar?</label>
-                                <select class="form-control" id="loan-term">
+                                <label class=form-input-title for="loan_term">¿Cuántos meses te quedan por
+                                    pagar?</label>
+                                <select class="form-control" id="loan_term" name="loan_term">
                                     <option>1-3</option>
                                     <option>4-6</option>
                                     <option>7-9</option>
@@ -89,16 +78,20 @@
                                     <option>13+</option>
                                 </select>
                             </div>
+                            <input type="hidden" class="form-control" id="source" name="source">
+                            <input type="hidden" class="form-control" id="medium" name="medium">
+                            <input type="hidden" class="form-control" id="campaign" name="campaign">
+                            -->
 
 
-                            <button type="submit" class="btn btn-secondary btn-form">Submit</button>
+                            <button type="submit" class="btn btn-secondary btn-form" name=someAction>Continuar </button>
                         </form>
 
                     </div>
 
                 </div>
                 <div class="col-md-6 mt-3">
-                    <img  class= "img-fluid" src="assets/images/Girl-phone.png" alt="">
+                    <img class="img-fluid" src="assets/images/Girl-phone.png" alt="">
 
                 </div>
             </div>

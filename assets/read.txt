@@ -1,0 +1,21 @@
+ die('Connect_Error('. mysqli_connect_errorno().')'. mysqli_connect_error());
+    }else{
+        $SELECT = "SELECT email From porta_tu_credito Where email = ? Limit 1";
+        $INSERT = "INSERT INTO porta_tu_credito (email, celular, loan_kind, loan_amount, institution, loan_term) VALUES ($email, $celular, $loan_kind, $loan_amount, $institution)";
+        //Prepare statement
+        $stmt = $conn->prepare($SELECT);
+       
+        $stmt->execute();
+     
+        $stmt->store_result();
+        $rnum = $stmt->num_rows;
+        if ($rnum==0) {
+        $stmt->close();
+        echo "New record inserted sucessfully";
+        } else {
+        echo "Someone already register using this email";
+        }
+        $stmt->close();
+        $conn->close();
+        };
+?>
