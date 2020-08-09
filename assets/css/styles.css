@@ -10,12 +10,13 @@ html {
   color: white;
 }
 
-.img-girl {
-  display: block;
+@media only screen and (min-width: 770px) {
+  .fix {
+    position: absolute;
+    bottom: 0px;
+  }
 }
-
 .form-background {
-  background: rgba(200, 200, 255, 0.3);
   border-radius: 25px;
 }
 
@@ -29,6 +30,14 @@ html {
 
 .btn-form {
   width: 100%;
+}
+
+.main-input {
+  height: 45px;
+}
+
+.main-submit {
+  height: 45px;
 }
 
 /*# sourceMappingURL=styles.css.map */
