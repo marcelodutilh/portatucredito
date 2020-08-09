@@ -37,7 +37,13 @@ html {
 }
 
 .main-submit {
-  height: 45px;
+  height: auto;
+}
+
+@media only screen and (min-width: 700px) {
+  .main-submit {
+    min-height: 45px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

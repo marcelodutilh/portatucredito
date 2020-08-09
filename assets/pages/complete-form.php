@@ -1,3 +1,41 @@
+<?php
+    //Step1 connection
+
+    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['someAction']))
+    {
+        func();
+    }
+    function func(){
+
+        $email = $_REQUEST['email'];
+        $bank = $_REQUEST['bank'];
+        $ammount = $_REQUEST['ammount'];
+        $pay = $_REQUEST['pay'];
+        $term = $_REQUEST['term'];
+        $payments = $_REQUEST['payments'];
+        $latePayments = $_REQUEST['latePayments'];
+        $rut = $_REQUEST['rut'];
+
+        $db = mysqli_connect('localhost','root','','portabilidad') or die('Error connecting to MySQL server.');
+
+        $sql = "INSERT INTO porta_credito VALUES ('$email', '$bank', '$ammount','$pay','$term','$payments','$latePayments','$rut')";
+
+        if (mysqli_query($db, $sql)) {
+            //Agregar Modal
+            echo '<script language="javascript">alert("¡Recibimos tus datos! Te enviaremos el cálculo de tu nueva cuota lo antes posible!");</script>';
+        } else {
+            //Agregar Modal de Error
+            echo "Error: " . $sql . "<br>" . mysqli_error($db);
+        }
+        mysqli_close($db);
+        }
+    
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -23,7 +61,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="../../index.html">Inicio <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Cómo funciona</a>
+                <a class="nav-item nav-link" href="comoFunciona.html">Cómo funciona</a>
                 <a class="nav-item nav-link" href="#">Conócenos</a>
             </div>
         </div>
@@ -35,13 +73,18 @@
                 <div class="col-md-6 mt-5">
                     <div class="form-background">
                         <h1 class="main-section_title pt-4 pb-3">Solo necesitamos estos datos para poder ayudarte</h1>
-                        <form class="pt-2 pb-2  mr-2 ml-2" action="assets/conn.php" method="POST">
+                        <form class="pt-2 pb-2  mr-2 ml-2" action="complete-form.php" method="POST">
 
                             <div class="form-group">
-                                <input type="email" class="form-control main-input" id="email" aria-describedby="emailHelp"
+                                <input type="email" class="form-control main-input" id="email2" aria-describedby="emailHelp"
                                     placeholder="Ingresa tu email" name="email">
-
                             </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control main-input" id="rut"
+                                    placeholder="Ingresa tu rut" name="rut">
+                            </div>
+                            
                             <div class="form-group">
                                 <input type="text" class="form-control main-input" id="bank"
                                     placeholder="Banco casa comercial" name="bank">
@@ -53,8 +96,8 @@
 
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control main-input" id="term"
-                                    placeholder="Monto de la cuota" name="term">
+                                <input type="number" class="form-control main-input" id="pay"
+                                    placeholder="Monto de la cuota" name="pay">
 
                             </div>
                             <div class="form-group">
@@ -70,7 +113,7 @@
                             <div class="form-group">
                                 
                                 <input type="number" class="form-control main-input" id="late-payments"
-                                    placeholder="Número de cuotas atrasadas" name="late-payments">
+                                    placeholder="Número de cuotas atrasadas" name="latePayments">
 
                             </div>
 
@@ -155,6 +198,8 @@
             </div>
         </div>
     </div>
+
+    <script src="../js/completeForm.js"></script>
 
 
 
