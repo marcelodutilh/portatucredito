@@ -1,5 +1,35 @@
 <?php
     //Step1 connection
+    $email = $_REQUEST['email'];
+    $server = 'localhost';
+    $userName = 'cuentago_mdm1995';
+    $pass = 'portabilidad2020';
+    $table = 'cuentago_portabilidad';
+
+
+    //$userName = 'root';
+    //$pass = '';
+    //$table = 'portabilidad';
+
+
+
+    $db = mysqli_connect($server,$userName,$pass,$table) or die('Error connecting to MySQL server.');
+
+
+    $sql = "INSERT INTO email(email) VALUES ('$email')";
+
+    if (mysqli_query($db, $sql)) {
+        //Agregar Modal
+        //echo '<script language="javascript">alert("¡Recibimos tus datos! Te enviaremos el cálculo de tu nueva cuota lo antes posible!");</script>';
+    } else {
+        //Agregar Modal de Error
+        echo "Error: " . $sql . "<br>" . mysqli_error($db);
+    }
+    mysqli_close($db);
+    
+
+
+
 
     if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['someAction']))
     {
@@ -16,9 +46,24 @@
         $latePayments = $_REQUEST['latePayments'];
         $rut = $_REQUEST['rut'];
 
-        $db = mysqli_connect('localhost','root','','portabilidad') or die('Error connecting to MySQL server.');
 
-        $sql = "INSERT INTO porta_credito VALUES ('$email', '$bank', '$ammount','$pay','$term','$payments','$latePayments','$rut')";
+
+        $server = 'localhost';
+        $userName = 'cuentago_mdm1995';
+        $pass = 'portabilidad2020';
+        $table = 'cuentago_portabilidad';
+
+
+        //$userName = 'root';
+        //$pass = '';
+        //$table = 'portabilidad';
+
+
+
+        $db = mysqli_connect($server,$userName,$pass,$table) or die('Error connecting to MySQL server.');
+
+    
+        $sql = "INSERT INTO porta_credito (email, bank, ammount, pay, term, payments, latePayments, rut) VALUES ('$email', '$bank', '$ammount','$pay','$term','$payments','$latePayments','$rut')";
 
         if (mysqli_query($db, $sql)) {
             //Agregar Modal
@@ -32,8 +77,6 @@
     
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -60,9 +103,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="../../index.html">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="../../index.html">Inicio</a>
                 <a class="nav-item nav-link" href="comoFunciona.html">Cómo funciona</a>
-                <a class="nav-item nav-link" href="#">Conócenos</a>
+                <a class="nav-item nav-link" href="#">Quiénes somos</a>
             </div>
         </div>
     </nav>
@@ -77,43 +120,43 @@
 
                             <div class="form-group">
                                 <input type="email" class="form-control main-input" id="email2" aria-describedby="emailHelp"
-                                    placeholder="Ingresa tu email" name="email">
+                                    placeholder="Ingresa tu email" name="email" required>
                             </div>
 
                             <div class="form-group">
                                 <input type="text" class="form-control main-input" id="rut"
-                                    placeholder="Ingresa tu rut" name="rut">
+                                    placeholder="Ingresa tu rut" name="rut" required>
                             </div>
                             
                             <div class="form-group">
                                 <input type="text" class="form-control main-input" id="bank"
-                                    placeholder="Banco casa comercial" name="bank">
+                                    placeholder="Banco casa comercial" name="bank" required>
 
                             </div>
                             <div class="form-group">
                                 <input type="number" class="form-control main-input" id="ammount"
-                                    placeholder="Monto solicitado" name="ammount">
+                                    placeholder="Monto solicitado" name="ammount" required>
 
                             </div>
                             <div class="form-group">
                                 <input type="number" class="form-control main-input" id="pay"
-                                    placeholder="Monto de la cuota" name="pay">
+                                    placeholder="Monto de la cuota" name="pay" required>
 
                             </div>
                             <div class="form-group">
                                 <input type="number" class="form-control main-input" id="term"
-                                    placeholder="Número de cuotas" name="term">
+                                    placeholder="Número de cuotas" name="term" required>
 
                             </div>
                             <div class="form-group">
                                 <input type="number" class="form-control main-input" id="payments"
-                                    placeholder="Número de cuotas pagadas" name="payments">
+                                    placeholder="Número de cuotas pagadas" name="payments" required>
 
                             </div>
                             <div class="form-group">
                                 
                                 <input type="number" class="form-control main-input" id="late-payments"
-                                    placeholder="Número de cuotas atrasadas" name="latePayments">
+                                    placeholder="Número de cuotas atrasadas" name="latePayments" required>
 
                             </div>
 

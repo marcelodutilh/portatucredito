@@ -13,45 +13,53 @@
 </head>
 
 <body>
-    
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="#">Porta tu crédito</a>
+        <a class="navbar-brand" href="index.html">Porta tu crédito</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Cómo funciona</a>
-                <a class="nav-item nav-link" href="#">Conócenos</a>
+                <a class="nav-item nav-link active" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="assets/pages/comoFunciona.html">Cómo funciona</a>
+                <a class="nav-item nav-link" href="assets/pages/quienesSomos.html">Quiénes somos</a>
             </div>
         </div>
     </nav>
     <div class="main-section mt-5">
-       
+
         <div class="container">
             <div class="row">
-                <div class="col-md-6 mt-5">
+                <div class="col-lg-6 mt-5">
                     <div class="form-background">
-                        <h1 class="main-section_title pt-4 pb-3">Porta tu crédito y <strong>disminuye la cuota hasta la
-                            mitad</strong></h1>
-                        <form class="pt-2 pb-2  mr-2 ml-2" action="assets/conn.php" method="POST">
-                            <h2 class="main-section-form_title">¿Te gustaría saber cuanto te puedes ahorrar?</h2>
-                            <h3>Déjanos tus datos y te contactaremos con la mejor oferta</h3>
+                        <h1 class="main-section_title pt-4 pb-3">Aprovecha la portabilidad financiera y <strong>baja la
+                                cuota de tu crédito</strong></h1>
+                        <form class="pt-2 pb-2" action="assets/pages/complete-form.php" method="GET">
+                            <h3 class="main-section-form_title">¿Te gustaría saber cuanto te puedes ahorrar?</h3>
+                            <br>
+                            <h2 class="main-section-form_title">Nosotros te ayudamos, déjanos tus datos</h2>
                             <div class="form-group">
 
                                 <label class=form-input-title for="email">Email</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                                    placeholder="Ingresa tu email" name="email">
+                                <input type="email" class="form-control main-input" id="email"
+                                    aria-describedby="emailHelp" placeholder="Ingresa tu email" name="email" required>
 
                             </div>
-                            <div class="form-group">
+
+                            <!-- Campo celular -->
+
+                            <!-- 
+                                 <div class="form-group">
                                 <label class=form-input-title for="celular">Celular</label>
                                 <input type="text" class="form-control" id="celular" placeholder="Ingresa tu celular"
                                     name="celular">
-                            </div>
-                           <!-- <div class="form-group">
+                                </div>
+                                -->
+
+
+                            <!-- <div class="form-group">
                                 <label class=form-input-title for="institution">Institución</label>
                                 <input type="text" class="form-control" id="institution"
                                     placeholder="¿Con quién mantienes tu crédito?" name="institution">
@@ -84,13 +92,15 @@
                             -->
 
 
-                            <button type="submit" class="btn btn-secondary btn-form" name=someAction>Continuar </button>
+                                
+                            <button type="submit" class="btn btn-secondary btn-form main-submit" name=someAction
+                                id="continueBtn">Continuar </button>
                         </form>
 
                     </div>
 
                 </div>
-                <div class="col-md-6 mt-3">
+                <div class="col-lg-6 mt-3">
                     <img class="img-fluid" src="assets/images/Girl-phone.png" alt="">
 
                 </div>
@@ -99,7 +109,27 @@
 
     </div>
 
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <div class="container">
+                        <div class="row d-flex justify-content-between">
+                            <div col-md-6>
+                                <p><strong>portatucredito.com ®</strong></p>
+                            </div>
+                            <div col-md-6>
+                                <p>“Porque queremos mejorar las condiciones”</p>
+                            </div>
+                        </div>
 
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
